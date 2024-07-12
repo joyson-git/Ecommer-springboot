@@ -2,17 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Sign Up</title>
+    <title>Sign In</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>User Sign-Up</h1>
-        <form action="#" th:action="@{/User/signup}" th:object="${signup}" method="post">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" th:field="*{username}" class="form-control" required />
-            </div>
+        <h1>User Sign-In</h1>
+        <form action="#" th:action="@{/User/signin}" th:object="${signin}" method="post">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" th:field="*{email}" class="form-control" required />
@@ -21,7 +17,7 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" th:field="*{password}" class="form-control" required />
             </div>
-            <button type="submit" class="btn btn-primary">Sign Up</button>
+            <button type="submit" class="btn btn-primary">Sign In</button>
         </form>
     </div>
 </body>

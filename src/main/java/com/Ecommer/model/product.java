@@ -1,6 +1,7 @@
 package com.Ecommer.model;
 
-import org.antlr.v4.runtime.misc.NotNull;
+import com.Ecommer.model.Category;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,21 +11,20 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "products")
+@Table(name = "product")
 public class product {
 
-    @Id 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private @NotNull String name;
-    private @NotNull String imageUrl;
-    private @NotNull double price;
-    private @NotNull String description;
+    private String name;
+    private String description;
+    private String imageUrl;
+    private Double price;
 
-    // Many-to-one relationship with Category
     @ManyToOne
-    @JoinColumn(name = "category_id") // Correctly renamed foreign key column
+    @JoinColumn(name = "category_id")
     private Category category;
 
     // Getters and Setters
@@ -44,22 +44,6 @@ public class product {
         this.name = name;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -68,11 +52,40 @@ public class product {
         this.description = description;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
     public Category getCategory() {
         return category;
     }
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    // toString method (optional for debugging)
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", price=" + price +
+                ", category=" + category +
+                '}';
     }
 }

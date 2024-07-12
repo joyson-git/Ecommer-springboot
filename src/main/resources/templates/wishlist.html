@@ -1,0 +1,40 @@
+<!-- 
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Wishlist</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h1>Wishlist</h1>
+
+    <div>
+        <h2>Add Product to Wishlist</h2>
+        <form th:action="@{/wishlist/add}" method="post">
+            <input type="hidden" name="token" th:value="${token}" />
+            <label for="productId">Product ID:</label>
+            <input type="text" id="productId" name="productId" required />
+            <button type="submit">Add to Wishlist</button>
+        </form>
+    </div>
+
+    <div>
+        <h2>Your Wishlist</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Product Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product : ${wishlist}">
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.description}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+ -->

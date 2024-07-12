@@ -13,7 +13,7 @@ import com.Ecommer.dto.user.SignInResponseDto;
 import com.Ecommer.dto.user.signupdto;
 import com.Ecommer.service.UserService;
 
-@RequestMapping("user")
+@RequestMapping("User")
 @RestController
 public class Usercontroller {
 	

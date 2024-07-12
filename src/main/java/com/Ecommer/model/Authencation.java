@@ -1,5 +1,9 @@
 package com.Ecommer.model;
 
+
+import java.util.Date;
+import java.util.UUID;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,9 +12,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-
-import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name = "tokens")
@@ -29,50 +30,50 @@ public class Authencation {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private user user;
+    private User user;
 
-    // Default constructor (needed by JPA)
+    // Constructors
     public Authencation() {
+        this.createDate = new Date();
+        this.token = UUID.randomUUID().toString();
     }
 
-    // Constructor with User parameter
-    public Authencation(user user) {
+    public Authencation(User user) {
         this.user = user;
         this.createDate = new Date();
         this.token = UUID.randomUUID().toString();
     }
 
-	public Integer getId() {
-		return id;
-	}
+    // Getters and Setters
+    public Integer getId() {
+        return id;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public String getToken() {
-		return token;
-	}
+    public String getToken() {
+        return token;
+    }
 
-	public void setToken(String token) {
-		this.token = token;
-	}
+    public void setToken(String token) {
+        this.token = token;
+    }
 
-	public Date getCreateDate() {
-		return createDate;
-	}
+    public Date getCreateDate() {
+        return createDate;
+    }
 
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
 
-	public user getUser() {
-		return user;
-	}
+    public User getUser() {
+        return user;
+    }
 
-	public void setUser(user user) {
-		this.user = user;
-	}
-
-    
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
